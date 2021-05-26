@@ -190,7 +190,7 @@ width: 100px }
                     <textarea name="details" id="" cols="100" rows="5" class="form-control" required></textarea>
             </div>
             <br>
-            <button type="submit" class="btn btn-success form-control">Register</button>
+            <button type="submit" name="complaint" class="btn btn-success form-control">Register</button>
     
         </div>
     </div>
@@ -249,7 +249,8 @@ width: 100px }
           <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
+                <form action="{{url('/register/fir')}}" method="POST">
+                @csrf
                     <!-- Modal Header -->
                     <div class="modal-header text-white" style="background-color:#140D44">
                         <h4 class="modal-title">FIR Registration</h4>
@@ -262,56 +263,55 @@ width: 100px }
 
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
+                            <form role="form" >
+                            <!-- action="{{route('register-fir')}}" method="POST" -->
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">Phone NO</label>
-                                        <input type="number" class="form-control" id="phone"
+                                        <input type="number" class="form-control" id="phone" name="phoneno"
                                             placeholder="Enter Phone no">
                                     </div>
                                     <div class="form-group">
                                         <label for="cinc">CNIC</label>
-                                        <input type="number" class="form-control" id="cinc" placeholder="Enter CNIC">
+                                        <input type="number" class="form-control" name="cnic" id="cinc" placeholder="Enter CNIC">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                             placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="address" class="form-control" id="address1" placeholder="Pddress">
+                                        <input type="address" name="address" class="form-control" id="address1" placeholder="Pddress">
                                     </div>
                                     <div class="form-group">
                                         <label for="placeofinci">Place of Incident</label>
-                                        <input type="text" class="form-control" id="placeofinci"
+                                        <input type="text" class="form-control" name="placeofincident" id="placeofinci"
                                             placeholder="Place of incident">
                                     </div>
                                     <div class="form-group">
                                         <label for="dateofinci">Date/Time of Incident</label>
-                                        <input type="datetime-local" class="form-control" id="dateofinci"
+                                        <input type="datetime-local" name="date" class="form-control" id="dateofinci"
                                             placeholder="Date/Time of incident">
                                     </div>
                                     <div class="form-group">
                                         <label for="subject">Subject of Incident</label>
-                                        <input type="text" class="form-control" id="subject"
+                                        <input type="text" name="subjectofincident" class="form-control" id="subject"
                                             placeholder="subjectof incident">
                                     </div>
                                     <div class="form-group">
                                         <label for="msg">Detail of Incident</label>
-                                        <textarea name="" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                                        <textarea name="detailofincident" id="msg" cols="30" rows="5" class="form-control"></textarea>
                                     </div>
-
-
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="form1" class="btn btn-success">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -321,7 +321,7 @@ width: 100px }
                     <div class="modal-footer">
                         <button type="button" class="btn text-white" style="background-color:#D8050E" data-dismiss="modal">Close</button>
                     </div>
-
+</form>
                 </div>
             </div>
         </div>
@@ -354,44 +354,45 @@ width: 100px }
 
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
+                            <form action="{{url('/register/cyber')}}" method="POST">
+                            @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">Phone NO</label>
-                                        <input type="number" class="form-control" id="phone"
+                                        <input type="number" name="phoneno" class="form-control" id="phone"
                                             placeholder="Enter Phone no">
                                     </div>
                                     <div class="form-group">
                                         <label for="cinc">CNIC</label>
-                                        <input type="number" class="form-control" id="cinc" placeholder="Enter CNIC">
+                                        <input type="number" name="cnic" class="form-control" id="cinc" placeholder="Enter CNIC">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                             placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="address" class="form-control" id="address1" placeholder="Pddress">
+                                        <input type="address" name="address" class="form-control" id="address1" placeholder="Pddress">
                                     </div>
                                    
                                     <div class="form-group">
                                         <label for="dateofinci">Date/Time Of Crime</label>
-                                        <input type="datetime-local" class="form-control" id="dateofinci"
+                                        <input type="datetime-local" name="date" class="form-control" id="dateofinci"
                                             placeholder="Date/Time  Of Crime">
                                     </div>
                                     <div class="form-group">
                                         <label for="subject">Subject Of Crime</label>
-                                        <input type="text" class="form-control" id="subject"
+                                        <input type="text" name="subjectofcrime" class="form-control" id="subject"
                                             placeholder="subject Of Crime">
                                     </div>
                                     <div class="form-group">
                                         <label for="msg">Detail Of Crime</label>
-                                        <textarea name="" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                                        <textarea name="detailofcrime" id="msg" cols="30" rows="5" class="form-control"></textarea>
                                     </div>
 
 
@@ -399,7 +400,7 @@ width: 100px }
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="cyber" class="btn btn-success">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -443,51 +444,54 @@ width: 100px }
 
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
+                            <form action="{{url('/register/anti')}}" method="POST">
+                            @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">Phone NO</label>
-                                        <input type="number" class="form-control" id="phone"
+                                        <input type="number" name="phoneno" class="form-control" id="phone"
                                             placeholder="Enter Phone no">
                                     </div>
                                     <div class="form-group">
                                         <label for="cinc">CNIC</label>
-                                        <input type="number" class="form-control" id="cinc" placeholder="Enter CNIC">
+                                        <input type="number" name="cnic" class="form-control" id="cinc" placeholder="Enter CNIC">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                             placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="address" class="form-control" id="address1" placeholder="address">
+                                        <input type="address" name="address"class="form-control" id="address1" placeholder="address">
                                     </div>
                                     <div class="form-group">
                                         <label for="placeofinci">Place of Incident</label>
-                                        <input type="text" class="form-control" id="placeofinci"
+                                        <input type="text" name="place" class="form-control" id="placeofinci"
                                             placeholder="Place of incident">
                                     </div>
+                                   
                                     <div class="form-group">
-                                        <label for="dateofinci">Date/Time of Incident</label>
-                                        <input type="datetime-local" class="form-control" id="dateofinci"
-                                            placeholder="Date/Time of incident">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="status">Status of Incident</label>
-                                        <select name="" id="status" class="form-control">
+                                        <label for="status">Status of Meeting</label>
+                                        <select name="statusofincident" id="status"  class="form-control">
                                             <option value="critical">Critical</option>
                                             <option value="normal">Normal</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="msg">Detail of Incident</label>
-                                        <textarea name="" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                                        <label for="dateofinci">Date/Time of Incident</label>
+                                        <input type="datetime-local" name="date" class="form-control" id="dateofinci"
+                                            placeholder="Date/Time of incident">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="msg">Detail of Incident</label>
+                                        <textarea name="detailofincident" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                                    </div>
+
 
 
                                 </div>
@@ -538,37 +542,38 @@ width: 100px }
 
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
+                            <form action="{{url('/register/appointment')}}" method="POST">
+                            @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">Phone NO</label>
-                                        <input type="number" class="form-control" id="phone"
+                                        <input type="number" name="phoneno" class="form-control" id="phone"
                                             placeholder="Enter Phone no">
                                     </div>
                                     <div class="form-group">
                                         <label for="cinc">CNIC</label>
-                                        <input type="number" class="form-control" id="cinc" placeholder="Enter CNIC">
+                                        <input type="number" name="cnic" class="form-control" id="cinc" placeholder="Enter CNIC">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                             placeholder="Enter email">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="status">Status of Meeting</label>
-                                        <select name="" id="status" class="form-control">
+                                        <select name="statusofmeeting" id="status"  class="form-control">
                                             <option value="critical">Critical</option>
                                             <option value="normal">Normal</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="msg">Meeting Details</label>
-                                        <textarea name="" id="msg" cols="30" rows="5" class="form-control"></textarea>
+                                        <textarea name="meetingdetails" id="msg"  cols="30" rows="5" class="form-control"></textarea>
                                     </div>
 
 
@@ -576,7 +581,7 @@ width: 100px }
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" name="appointment" class="btn btn-success">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -647,17 +652,25 @@ width: 100px }
             </tr>
             </thead>
             <tbody>
+            @if(isset($firs))
+            @foreach ($firs as $fir)
             <tr class="text-center text-center">
-
-                <td>ALi</td>
-                <td>37406 33895115 </td>
-                <td>Mobile Snaching </td>
-                <td>Gudwal </td>
-                <td>12</td>
-                <td><button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
-                <button type= "button" style="background-color:#140D44 " class="btn text-white">Completed</button></td>
-
-            </tr>
+           
+            <td>{{$fir->name}}</td>
+                <td>{{$fir->cnic}} </td>
+                <td>{{$fir->subjectofincident}} </td>
+                <td>{{$fir->placeofincident}}</td>
+                <td>{{$fir->date}}</td>
+              <td>
+              @if($fir->isAcceptLocation == 0)
+              <button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
+              @else
+              <button type= "button" style="background-color:#140D44 " class="btn text-white">Your Request is Accepted</button>
+              @endif  
+              </td> 
+                </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -722,16 +735,25 @@ width: 100px }
             </thead>
 
             <tbody>
+            @if(isset($cybers))
+            @foreach ($cybers as $cyber)
             <tr class="text-center text-center">
-
-                <td>ALi</td>
-                <td>37406 33895115 </td>
-                <td>ID HACK </td>
-                <td>12</td>
-                <td><button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
-                <button type= "button" style="background-color:#140D44 " class="btn text-white">Completed</button></td>
-
-            </tr>
+           
+            <td>{{$cyber->name}}</td>
+                <td>{{$cyber->cnic}} </td>
+                <td>{{$cyber->subjectofcrime}} </td>
+                <td>{{$cyber->date}}</td>
+                
+              <td>
+              @if($cyber->isAcceptLocation == 0)
+              <button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
+              @else
+              <button type= "button" style="background-color:#140D44 " class="btn text-white">Your Request is Accepted</button>
+              @endif  
+              </td> 
+                </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -790,15 +812,25 @@ width: 100px }
             </thead>
 
             <tbody>
+            @if(isset($antis))
+            @foreach ($antis as $anti)
             <tr class="text-center text-center">
-              <td>Usman</td>
-              <td>37406 33895115 </td>
-              <td>Critical </td>
-              <td>6:00 Pm</td>
-              <td><button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
-              <button type= "button" style="background-color:#140D44 " class="btn text-white">Completed</button></td>
-
-</tr>
+           
+            <td>{{$anti->name}}</td>
+                <td>{{$anti->cnic}} </td>
+                <td>{{$anti->statusofincident}} </td>
+                <td>{{$anti->date}}</td>
+                
+              <td>
+              @if($anti->isAcceptLocation == 0)
+              <button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
+              @else
+              <button type= "button" style="background-color:#140D44 " class="btn text-white">Your Request is Accepted</button>
+              @endif  
+              </td> 
+                </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -852,19 +884,29 @@ width: 100px }
                 <th>Name</th>
                 <th>CNIC</th>
                 <th>Subject of Meeting</th>
-                <th>Meeting Time</th>
+                <th>Meeting Details</th>
                 <th>Status</th>
             </tr>
             </thead>
             <tbody>
+            @if(isset($appointments))
+            @foreach ($appointments as $appointment)
             <tr class="text-center text-center">
-              <td>Usman</td>
-              <td>37406 33895115 </td>
-              <td>House Rent Issues</td>
-              <td>6:00 Pm</td>
-              <td><button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
-              <button type= "button" style="background-color:#140D44 " class="btn text-white">Completed</button></td>
+           
+            <td>{{$appointment->name}}</td>
+                <td>{{$appointment->cnic}} </td>
+                <td>{{$appointment->statusofmeeting}} </td>
+                <td>{{$appointment->meetingdetails}}</td>
+              <td>
+              @if($appointment->isAcceptLocation == 0)
+              <button type= "button" style="background-color:#D8050E " class="btn text-white">In Progres</button>
+              @else
+              <button type= "button" style="background-color:#140D44 " class="btn text-white">Your Request is Accepted</button>
+              @endif  
+              </td> 
                 </tr>
+                @endforeach
+                @endif
             </tbody>
         </table>
     </div>

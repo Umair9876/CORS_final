@@ -39,54 +39,54 @@
                                             <div class="card card-primary">
 
                                                 <!-- /.card-header -->
-                                                <!-- form start -->
-                                                <form role="form">
+                                                <!-- form start -->   
+                                                <form action="{{url('/register/police')}}" method="POST">
+                                                @csrf
                                                     <div class="card-body">
                                                         <div class="form-group">
                                                             <label for="name float-left">Name</label>
-                                                            <input  type="text" class="form-control" id="name"
+                                                            <input  type="text" name="name" class="form-control" id="name"
                                                                 placeholder="Enter Name">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="phone">Phone No</label>
-                                                            <input  type="number" class="form-control"
+                                                            <input  type="number" name="phoneno" class="form-control"
                                                                 id="phone" placeholder="Enter Phone no">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="cinc">CNIC</label>
-                                                            <input  type="number" class="form-control" id="cinc"
+                                                            <input  type="number" name="cnic" class="form-control" id="cinc"
                                                                 placeholder="Enter CNIC">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Email address</label>
-                                                            <input  type="email" class="form-control"
+                                                            <input  type="email" name="email" class="form-control"
                                                                 id="exampleInputEmail1" placeholder="Enter email">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="subject">Address</label>
-                                                            <input  type="text" class="form-control"
+                                                            <input  type="text" name="address" class="form-control"
                                                                 id="subject" placeholder="Address">
                                                         </div> 
-                                                         <div class="form-group">
-                                                            <label for="subject">Subject of Incident</label>
-                                                            <input  type="text" class="form-control"
-                                                                id="subject" placeholder="Subject of incident">
-                                                        </div> 
+                                                         
                                                         <div class="form-group">
-                                                            <label for="status">PLace of Incident</label>
-                                                            <input type="text" class="form-control" id="v"
-                                                                placeholder="appointment">
+                                                            <label for="status">Rank No</label>
+                                                            <input type="text" name="rank" class="form-control" id="v"
+                                                                placeholder="rank">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="msg"> Data/Time of Incident </label>
-                                                            <input type="text" class="form-control" id="v"
+                                                            <label for="status">Batch No</label>
+                                                            <input type="text" name="batchno" class="form-control" id="v"
+                                                                placeholder="Batch No">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="msg"> Data of Joining</label>
+                                                            <input type="text" name="dateofjoining" class="form-control" id="v"
                                                                 placeholder="Date/Time">
                                                         </div>
-                                                      
-
                                                         <div class="form-group">
                                                             <label for="appointment">Appointment Time</label>
-                                                            <input type="datetime-local" class="form-control" id="v"
+                                                            <input type="datetime-local" name="date" class="form-control" id="v"
                                                                 placeholder="appointment">
                                                         </div>
 
@@ -94,8 +94,8 @@
                                                     <!-- /.card-body -->
 
                                                     <div class="card-footer">
-                                                        <button type="submit" class="btn btn-success">Confirm
-                                                            Proceed</button>
+                                                    <button type="submit" name="police" class="btn btn-success">Submit</button>
+                                                        
                                                     </div>
                                                 </form>
                                             </div>
