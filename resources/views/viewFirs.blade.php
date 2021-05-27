@@ -33,12 +33,12 @@
             <tbody>
             @foreach ($firs as $fir)
             <tr class="text-center text-center">
-           
+
             <td>{{$fir->name}}</td>
                 <td>{{$fir->email}} </td>
                 <td>{{$fir->cnic}} </td>
                 <td>{{$fir->phoneno}} </td>
-                <td>{{$fir->subjectofincident}} </td>      
+                <td>{{$fir->subjectofincident}} </td>
                 <td>          @if($fir->isAcceptLocation == 1)
                 <button type= "button" style="background-color:#D8050E " class="btn text-white">Done</button>
                 @else
@@ -100,12 +100,12 @@
                 <td>{{$fir->subjectofincident}} </td>
                 <!-- modal start -->
                 <td class="text-center">
-                <section><button type="button" data-name="{{$fir->name}}" data-email="{{$fir->email}}" id="uma" class="btn btn-success btn-sm" data-toggle="modal"
-                                data-target="#proModal">
+                <section><button type="button" data-name="{{$fir->name}}" data-email="{{$fir->email}}" class="btn btn-success btn-sm" data-toggle="modal"
+                                data-target="#proModal-{{$fir->id}}">
                                 Proceed
                             </button>
                             <!-- The Modal -->
-                            <div class="modal fade text-left" id="proModal">
+                            <div class="modal fade text-left" id="proModal-{{$fir->id}}">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
 
@@ -118,7 +118,7 @@
                                         <!-- Modal body -->
                                         <div class="modal-body">
                                             <div class="card card-primary">
-                                          
+
                                                 <!-- /.card-header -->
                                                 <!-- form start -->
                                                 <form action="{{route('register-fir')}}" method="POST">
@@ -127,7 +127,7 @@
                                                             <label for="name float-left">Name</label>
                                                             <input  type="text"  class="form-control" id="name"
                                                                 value="{{$fir->name.$fir->id}}">
-                                                                
+
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="phone">Phone No</label>
@@ -148,8 +148,8 @@
                                                             <label for="subject">Address</label>
                                                             <input  type="text" class="form-control"
                                                                 id="subject" value="{{$fir->address}}">
-                                                        </div> 
-                                                         
+                                                        </div>
+
                                                         <div class="form-group">
                                                             <label for="status">PLace of Incident</label>
                                                             <input type="text" class="form-control" id="v"
@@ -165,7 +165,7 @@
                                                             <input  type="text" class="form-control"
                                                                 id="subject" value="{{$fir->subjectofincident}}">
                                                         </div>
-                                                      
+
 
                                                         <div class="form-group">
                                                             <label for="appointment">Detail of Incident</label>
@@ -175,14 +175,14 @@
 
                                                     </div>
                                                     <!-- /.card-body -->
-                                                   
+
 
                                                     <div class="card-footer">
                                                         <button type="submit" class="btn btn-success">Confirm
                                                             Proceed</button>
                                                     </div>
                                                 </form>
-                                                
+
                                             </div>
                                         </div>
 
@@ -206,14 +206,9 @@
 </section>
 <!-- Admin Table End -->
 
-<script>$('#uma').('on', 'click', function(){
-   let data = $(this).dataset;
-   console.log("hi");
+<script>
 
-   $('#name').val(data.name);
-   $('#exampleInputEmail1').val(data.email); //here modal-name and modal-email are ids of input fields of that modal
-
-})</script>
+</script>
 
 
 
