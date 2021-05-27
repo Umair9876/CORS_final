@@ -122,6 +122,7 @@
                                                 <!-- /.card-header -->
                                                 <!-- form start -->
                                                 <form action="{{route('register-fir')}}" method="POST">
+                                                    @csrf
                                                     <div class="card-body">
                                                         <div class="form-group">
                                                             <label for="name float-left">Name</label>
