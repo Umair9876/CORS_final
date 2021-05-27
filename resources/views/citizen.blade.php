@@ -93,6 +93,7 @@ width: 100px }
           <li><a href="#anti">Anti-Bullying Status</a></li>
           <li><a href="#appointment">Appointment Status</a></li>
           <li><a href="#emergency">Emergency Location</a></li>
+          <li><a href="#query">Query</a></li>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -989,6 +990,36 @@ width: 100px }
 </section>
 <!-- Emergency Location End  -->
 
+
+<!-- Query and Feedback Section Start -->
+
+<!-- Section Blue CTA start-->
+ <!-- ======= Cta Section ======= -->
+ <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3><strong class="onefive">Feedback</strong></h3>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+<!-- Section blue CTA end -->
+
+<section id="query">
+<div class="conatiner-fluid bco pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-4 text-center h2change">
+                <h2 style="color: black;">Query and Feedback</h2>
+            </div>
+        </div>
+        <!-- row end -->
+
+    </div>
+<!-- Query and Feedback section end -->
   
     <!-- fotter -->
     <section id="foot">

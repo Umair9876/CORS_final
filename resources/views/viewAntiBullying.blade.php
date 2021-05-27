@@ -25,7 +25,7 @@
                 <th>Name</th>
                 <th>Subject</th>
                 <th>Phone No</th>
-                <th>Place of Incident</th>
+                <th>Status of Incident</th>
                 <th>Status</th>
             </tr>
             </thead>
@@ -37,13 +37,14 @@
             <td>{{$fir->name}}</td>
                 <td>{{$fir->detailofincident}} </td>
                 <td>{{$fir->phoneno}} </td>
-                <td>{{$fir->place}} </td>
+                <td>{{$fir->statusofincident}} </td>
                 
                 <td>          @if($fir->isAcceptLocation == 1)
                 <button type= "button" style="background-color:#D8050E " class="btn text-white">Done</button>
                 @else
                 <!-- <button type= "button"  style="background-color:#140D44 " class="btn text-white">Accepted</button> -->
-                <a href="{{url('/police/accept/location',$fir->id)}}" class="btn text-white" style="background-color:#140D44 ">Accept</a>
+                <a href="{{url('/police/accept/antibullying',$fir->id)}}" class="btn text-white" 
+                style="background-color:#140D44 ">Accept</a>
                 @endif
                 </td>
                 </tr>
@@ -81,18 +82,20 @@
                 <th>Name</th>
                 <th>Subject</th>
                 <th>Phone No</th>
-                <th>Place of Incident</th>
+                <th>Status of Incident</th>
                 <th>Status</th>
             </tr>
             </thead>
 
             <tbody>
             <tr>
-
-                <td  class="text-center ">Abdul Rafay</td>
-                <td  class="text-center ">Student Harrasment</td>
-                <td  class="text-center ">0300-12345678 </td>
-                <td  class="text-center ">Wah Cantt</td>
+            @foreach ($firs as $fir)
+            <tr class="text-center text-center">
+           
+            <td>{{$fir->name}}</td>
+                <td>{{$fir->detailofincident}} </td>
+                <td>{{$fir->phoneno}} </td>
+                <td>{{$fir->statusofincident}} </td>
                  <!-- modal start -->
                  <td class="text-center">
                 <section><button type="button" class="btn btn-success btn-sm" data-toggle="modal"
@@ -198,6 +201,7 @@
                             </div>
                         </section></td>
             <!-- modal end -->
+            @endforeach
             </tr>
             </tbody>
         </table>

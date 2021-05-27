@@ -126,9 +126,13 @@ class ComplaintController extends Controller
         $police->batchno = $request->batchno;
         $police->dateofjoining = $request->dateofjoining;
         $police->date = $request->date;
-        $police->isAcceptLocation = 0;
         $police->save();
         return redirect()->back();
         
     }
+
+    
+
+
+
 }

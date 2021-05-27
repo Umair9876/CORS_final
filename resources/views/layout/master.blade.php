@@ -147,6 +147,12 @@
                                 </p>
                             </a>
                         </li> -->
+                        <li class="nav-item has-treeview "><a href="{{route('feedback')}}" class="nav-link ">
+                                <i class="nav-icon fas fa-compass"></i>
+                                <p>
+                                    Feedback
+                                </p>
+                            </a></li>
                         <li class="nav-item has-treeview "><a href="{{route('emergencyLocations')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-compass"></i>
                                 <p>

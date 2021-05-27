@@ -38,13 +38,12 @@
                 <td>{{$fir->email}} </td>
                 <td>{{$fir->cnic}} </td>
                 <td>{{$fir->phoneno}} </td>
-                <td>{{$fir->subjectofincident}} </td>
-                
+                <td>{{$fir->subjectofincident}} </td>      
                 <td>          @if($fir->isAcceptLocation == 1)
                 <button type= "button" style="background-color:#D8050E " class="btn text-white">Done</button>
                 @else
                 <!-- <button type= "button"  style="background-color:#140D44 " class="btn text-white">Accepted</button> -->
-                <a href="{{url('/police/accept/location',$fir->id)}}" class="btn text-white" style="background-color:#140D44 ">Accept</a>
+                <a href="{{url('/police/accept/fir',$fir->id)}}" class="btn text-white" style="background-color:#140D44 ">Accept</a>
                 @endif
                 </td>
                 </tr>
@@ -92,16 +91,16 @@
             </thead>
 
             <tbody>
-            <tr>
-
-                <td  class="text-center ">Abdul Rafay Javed</td>
-                <td  class="text-center ">37401 33895115 </td>
-                <td  class="text-center ">Car Snatching </td>
-                <td  class="text-center ">Wah Cantt</td>
-                <td  class="text-center ">29th Dec 2020, 11:46 PM</td>
+            @foreach ($firs as $fir)
+            <tr class="text-center text-center">
+            <td>{{$fir->name}}</td>
+                <td>{{$fir->email}} </td>
+                <td>{{$fir->cnic}} </td>
+                <td>{{$fir->phoneno}} </td>
+                <td>{{$fir->subjectofincident}} </td>
                 <!-- modal start -->
                 <td class="text-center">
-                <section><button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                <section><button type="button" data-name="{{$fir->name}}" data-email="{{$fir->email}}" id="uma" class="btn btn-success btn-sm" data-toggle="modal"
                                 data-target="#proModal">
                                 Proceed
                             </button>
@@ -119,69 +118,71 @@
                                         <!-- Modal body -->
                                         <div class="modal-body">
                                             <div class="card card-primary">
-                                            @foreach ($firs as $fir)
+                                          
                                                 <!-- /.card-header -->
                                                 <!-- form start -->
-                                                <form role="form">
+                                                <form action="{{route('register-fir')}}" method="POST">
                                                     <div class="card-body">
                                                         <div class="form-group">
                                                             <label for="name float-left">Name</label>
                                                             <input  type="text"  class="form-control" id="name"
-                                                                placeholder="Enter Name">
+                                                                value="{{$fir->name.$fir->id}}">
                                                                 
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="phone">Phone No</label>
                                                             <input  type="number" class="form-control"
-                                                                id="phone" placeholder="Enter Phone no">
+                                                                id="phone" value="{{$fir->phoneno}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="cinc">CNIC</label>
                                                             <input  type="number" class="form-control" id="cinc"
-                                                                placeholder="Enter CNIC">
+                                                            value="{{$fir->cnic}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Email address</label>
                                                             <input  type="email" class="form-control"
-                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                                id="exampleInputEmail1" value="{{$fir->email}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="subject">Address</label>
                                                             <input  type="text" class="form-control"
-                                                                id="subject" placeholder="Address">
+                                                                id="subject" value="{{$fir->address}}">
                                                         </div> 
-                                                         <div class="form-group">
-                                                            <label for="subject">Subject of Incident</label>
-                                                            <input  type="text" class="form-control"
-                                                                id="subject" placeholder="Subject of incident">
-                                                        </div> 
+                                                         
                                                         <div class="form-group">
                                                             <label for="status">PLace of Incident</label>
                                                             <input type="text" class="form-control" id="v"
-                                                                placeholder="appointment">
+                                                            value="{{$fir->placeofincident}}">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="msg"> Data/Time of Incident </label>
                                                             <input type="text" class="form-control" id="v"
-                                                                placeholder="Date/Time">
+                                                            value="{{$fir->date}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="subject">Subject of Incident</label>
+                                                            <input  type="text" class="form-control"
+                                                                id="subject" value="{{$fir->subjectofincident}}">
                                                         </div>
                                                       
 
                                                         <div class="form-group">
-                                                            <label for="appointment">Appointment Time</label>
-                                                            <input type="datetime-local" class="form-control" id="v"
-                                                                placeholder="appointment">
+                                                            <label for="appointment">Detail of Incident</label>
+                                                            <input type="text" class="form-control" id="v"
+                                                            value="{{$fir->detailofincident}}"  >
                                                         </div>
 
                                                     </div>
                                                     <!-- /.card-body -->
-                                                    @endforeach
+                                                   
 
                                                     <div class="card-footer">
                                                         <button type="submit" class="btn btn-success">Confirm
                                                             Proceed</button>
                                                     </div>
                                                 </form>
+                                                
                                             </div>
                                         </div>
 
@@ -190,7 +191,7 @@
                                             <button type="button"  class="btn text-white" style="background-color:#D8050E"
                                                 data-dismiss="modal">Close</button>
                                         </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -205,6 +206,14 @@
 </section>
 <!-- Admin Table End -->
 
+<script>$('#uma').('on', 'click', function(){
+   let data = $(this).dataset;
+   console.log("hi");
+
+   $('#name').val(data.name);
+   $('#exampleInputEmail1').val(data.email); //here modal-name and modal-email are ids of input fields of that modal
+
+})</script>
 
 
 

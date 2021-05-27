@@ -45,7 +45,7 @@
                 <button type= "button" style="background-color:#D8050E " class="btn text-white">Done</button>
                 @else
                 <!-- <button type= "button"  style="background-color:#140D44 " class="btn text-white">Accepted</button> -->
-                <a href="{{url('/police/accept/location',$cyber->id)}}" class="btn text-white" style="background-color:#140D44 ">Accept</a>
+                <a href="{{url('/police/accept/cyber',$cyber->id)}}" class="btn text-white" style="background-color:#140D44 ">Accept</a>
                 @endif
                 </td>
                 </tr>
@@ -92,10 +92,13 @@
 
             <tbody>
             <tr>
-            <td  class="text-center ">Zunaira Ali</td>
-                <td  class="text-center ">37402 33895115 </td>
-                <td  class="text-center ">Facebook Hack </td>
-                <td  class="text-center ">29th,Oct,2020,6:00 PM</td>
+            @foreach ($cybers as $cyber)
+            <tr class="text-center text-center">
+           
+            <td>{{$cyber->name}}</td>
+                <td>{{$cyber->cnic}} </td>
+                <td>{{$cyber->subjectofcrime}} </td>
+                <td>{{$cyber->date}} </td>
                  <!-- modal start -->
                  <td class="text-center">
                 <section><button type="button" class="btn btn-success btn-sm" data-toggle="modal"
@@ -191,6 +194,7 @@
                             </div>
                         </section></td>
             <!-- modal end -->
+            @endforeach
             </tr>
             </tbody>
         </table>

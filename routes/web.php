@@ -6,6 +6,7 @@ use App\Cybercrime;
 use App\Antibullying;
 use App\Appointment;
 use App\Registerpolice;
+use App\Feedback;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +65,8 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 Route::get('/registerpolice', function () {
-    return view('viewRegisterPolice');
+    $polices = Registerpolice::all();
+    return view('viewRegisterPolice',compact('polices'));
 })->name('registerpolice')->middleware('auth');
 
 
@@ -99,6 +101,10 @@ Route::get('/emergencyLocations', function () {
 })->name('emergencyLocations')->middleware('auth');
 
 
+Route::get('/feedback', function () {
+    $feedbacks= Feedback::all();
+    return view('viewfeedback',compact('feedbacks'));
+})->name('feedback')->middleware('auth');
 
 
 
@@ -107,7 +113,7 @@ Route::get('/dashboard1', function () {
 })->name('dashboard1')->middleware('auth');
  
 
-Route::get('/police/accept/location/{id}', function ($id) {
+Route::get('/police/accept/emergency/{id}', function ($id) {
     $complaint = Complaint::find($id);
     $complaint->isAcceptLocation = 1;
     $complaint->save();
@@ -116,7 +122,7 @@ Route::get('/police/accept/location/{id}', function ($id) {
 
 
 
-Route::get('/police/accept/location/{id}', function ($id) {
+Route::get('/police/accept/fir/{id}', function ($id) {
     $complaint = Fir::find($id);
     $complaint->isAcceptLocation = 1;
     $complaint->save();
@@ -124,7 +130,7 @@ Route::get('/police/accept/location/{id}', function ($id) {
 })->middleware('auth');
 
 
-Route::get('/police/accept/location/{id}', function ($id) {
+Route::get('/police/accept/cyber/{id}', function ($id) {
     $complaint = Cybercrime::find($id);
     $complaint->isAcceptLocation = 1;
     $complaint->save();
@@ -132,14 +138,12 @@ Route::get('/police/accept/location/{id}', function ($id) {
 })->middleware('auth');
 
 
-Route::get('/police/accept/location/{id}', function ($id) {
+Route::get('/police/accept/antibullying/{id}', function ($id) {
     $complaint = Antibullying::find($id);
     $complaint->isAcceptLocation = 1;
     $complaint->save();
     return redirect()->back();
 })->middleware('auth');
-
-
 
 
 Route::get('/police/accept/location/{id}', function ($id) {

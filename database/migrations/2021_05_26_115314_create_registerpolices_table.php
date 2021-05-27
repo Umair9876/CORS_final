@@ -24,7 +24,7 @@ class CreateRegisterpolicesTable extends Migration
             $table->string('batchno')->nullable();
             $table->string('dateofjoining')->nullable();
             $table->string('date')->nullable();
-            $table->boolean('isAcceptLocation')->nullable();
+            
             $table->timestamps();
         });
     }
