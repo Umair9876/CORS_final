@@ -21,7 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('user-detail', 'PassportAuthController@userDetail');
 
 });
-Route::get('/get/complaints', 'Api\ApiComplaintController@getComplaints');
+Route::get('/get/complaints/{user_id}', 'Api\ApiComplaintController@getComplaints');
 Route::post('/register/complaint', 'Api\ApiComplaintController@registerComplaint');
 
 Route::post('/feedback', 'Api\ApiComplaintController@addFeedback');
+
+Route::post('/update/profile', 'Api\ApiComplaintController@updateProfile');
