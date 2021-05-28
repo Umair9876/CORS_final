@@ -23,8 +23,9 @@ class CreateFirsTable extends Migration
             $table->string('placeofincident')->nullable();
             $table->string('date')->nullable();
             $table->string('subjectofincident')->nullable();
-            $table->string('detailofincident')->nullable();
+            $table->longText('detailofincident')->nullable();
             $table->boolean('isAcceptLocation')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

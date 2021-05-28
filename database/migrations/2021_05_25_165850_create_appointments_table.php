@@ -20,8 +20,9 @@ class CreateAppointmentsTable extends Migration
             $table->string('cnic')->nullable();
             $table->string('email')->nullable();
             $table->string('statusofmeeting')->nullable();
-            $table->string('meetingdetails')->nullable();
+            $table->longText('meetingdetails')->nullable();
             $table->boolean('isAcceptLocation')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

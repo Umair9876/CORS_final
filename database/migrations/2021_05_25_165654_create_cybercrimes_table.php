@@ -22,8 +22,9 @@ class CreateCybercrimesTable extends Migration
             $table->string('address')->nullable();
             $table->string('date')->nullable();
             $table->string('subjectofcrime')->nullable();
-            $table->string('detailofcrime')->nullable();
+            $table->longText('detailofcrime')->nullable();
             $table->string('isAcceptLocation')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

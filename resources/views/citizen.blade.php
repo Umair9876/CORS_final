@@ -93,7 +93,6 @@ width: 100px }
           <li><a href="#anti">Anti-Bullying Status</a></li>
           <li><a href="#appointment">Appointment Status</a></li>
           <li><a href="#emergency">Emergency Location</a></li>
-          <li><a href="#query">Query</a></li>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
@@ -174,7 +173,6 @@ width: 100px }
                     <div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04805e+06px, 697379px, 0px) scale(4096);"></div></div>
                     <div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a>
                     <a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div>
-
             </div>
             
           </div>
@@ -287,7 +285,7 @@ width: 100px }
                                     </div>
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="address" name="address" class="form-control" id="address1" placeholder="Pddress">
+                                        <input type="address" name="address" class="form-control" id="address1" placeholder="Address">
                                     </div>
                                     <div class="form-group">
                                         <label for="placeofinci">Place of Incident</label>
@@ -991,35 +989,6 @@ width: 100px }
 <!-- Emergency Location End  -->
 
 
-<!-- Query and Feedback Section Start -->
-
-<!-- Section Blue CTA start-->
- <!-- ======= Cta Section ======= -->
- <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="text-center">
-          <h3><strong class="onefive">Feedback</strong></h3>
-
-
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-<!-- Section blue CTA end -->
-
-<section id="query">
-<div class="conatiner-fluid bco pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-4 text-center h2change">
-                <h2 style="color: black;">Query and Feedback</h2>
-            </div>
-        </div>
-        <!-- row end -->
-
-    </div>
-<!-- Query and Feedback section end -->
   
     <!-- fotter -->
     <section id="foot">

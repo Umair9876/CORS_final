@@ -65,7 +65,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="/">Home</a></li>
           <li><a href="#mw">Most Wanted</a></li>
           <li><a href="#mr">News Room</a></li>
           <li><a href="{{route('dashboard1')}}">Dashboard</a></li>
@@ -133,16 +133,19 @@
             </div>
           </div>
           </a>
-
+          <a href="/documentaries">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class='bx bxs-video-plus'></i></div>
-              <h4 class="title"><a href="">Documentaries</a></h4>
+              <h4 class="title"><a href="/documentaries">Documentaries</a></h4>
               <p class="description">If you wants to see any documentaries regarding criminal investigation
                 documentaries etc.</p>
             </div>
+          
           </div>
-
+          </a>
+          <a href="/selfdefence">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class='bx bxs-videos'></i></div>
@@ -150,6 +153,7 @@
               <p class="description">if user want to see self-prevention and defence videos</p>
             </div>
           </div>
+          </a>
 
         </div>
 

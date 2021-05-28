@@ -10,6 +10,7 @@ use App\Cybercrime;
 use App\Antibullying;
 use App\Appointment;
 use App\Registerpolice;
+use App\User;
 
 class ComplaintController extends Controller
 {
@@ -30,6 +31,8 @@ class ComplaintController extends Controller
         $complaint->address = $request->address;
         $complaint->contact = $request->contact;
         $complaint->isAcceptLocation = 0;
+        $user=auth()->user();
+        $user->complaints()->save($complaint);
         $complaint->save();
         return redirect()->back();
         
@@ -49,9 +52,30 @@ class ComplaintController extends Controller
         $fir->subjectofincident = $request->subjectofincident;
         $fir->detailofincident = $request->detailofincident;
         $fir->isAcceptLocation = 0;
+        $user=auth()->user();
+        $user->firs()->save($fir);
         $fir->save();
         return redirect()->back();
         
+    }
+
+    public function updateFir(Request $request){
+
+
+        // $page=PagesDescription::find($request->page_id);
+        $fir = Fir::find($request->id);
+        $fir->name = $request->input('name');
+        $fir->phoneno = $request->input('phoneno');
+        $fir->cnic = $request->input('cnic');
+        $fir->email = $request->input('email');
+        $fir->address = $request->input('address');
+        $fir->placeofincident = $request->input('placeofincident');
+        $fir->date = $request->input('date');
+        $fir->subjectofincident = $request->input('subjectofincident');
+        $fir->detailofincident = $request->input('detailofincident');
+        $fir->isAcceptLocation = 0;
+        $fir->save();
+        return redirect()->back();
     }
     // public function 
 
@@ -69,9 +93,30 @@ class ComplaintController extends Controller
         $cyber->subjectofcrime = $request->subjectofcrime;
         $cyber->detailofcrime = $request->detailofcrime;
         $cyber->isAcceptLocation = 0;
+        $user=auth()->user();
+        $user->cybercrimes()->save($cyber);
         $cyber->save();
         return redirect()->back();
         
+    }
+
+
+    public function updateCyber(Request $request){
+
+
+        // $page=PagesDescription::find($request->page_id);
+        $fir = Cybercrime::find($request->id);
+        $fir->name = $request->input('name');
+        $fir->phoneno = $request->input('phoneno');
+        $fir->cnic = $request->input('cnic');
+        $fir->email = $request->input('email');
+        $fir->address = $request->input('address');
+        $fir->date = $request->input('date');
+        $fir->subjectofcrime = $request->input('subjectofcrime');
+        $fir->detailofcrime = $request->input('detailofcrime');
+        $fir->isAcceptLocation = 0;
+        $fir->save();
+        return redirect()->back();
     }
 
     public function registerAnti(Request $request)
@@ -89,9 +134,30 @@ class ComplaintController extends Controller
         $anti->statusofincident = $request->statusofincident;
         $anti->detailofincident = $request->detailofincident;
         $anti->isAcceptLocation = 0;
+        $user=auth()->user();
+        $user->bullyings()->save($anti);
         $anti->save();
         return redirect()->back();
         
+    }
+
+    public function updateBullying(Request $request){
+
+
+        // $page=PagesDescription::find($request->page_id);
+        $fir = Antibullying::find($request->id);
+        $fir->name = $request->input('name');
+        $fir->phoneno = $request->input('phoneno');
+        $fir->cnic = $request->input('cnic');
+        $fir->email = $request->input('email');
+        $fir->address = $request->input('address');
+        $fir->place = $request->input('place');
+        $fir->date = $request->input('date');
+        $fir->statusofincident = $request->input('statusofincident');
+        $fir->detailofincident = $request->input('detailofincident');
+        $fir->isAcceptLocation = 0;
+        $fir->save();
+        return redirect()->back();
     }
 
 
@@ -107,16 +173,34 @@ class ComplaintController extends Controller
         $appointment->statusofmeeting = $request->statusofmeeting;
         $appointment->meetingdetails= $request->meetingdetails;
         $appointment->isAcceptLocation = 0;
+        $user=auth()->user();
+        $user->appointments()->save($appointment);
         $appointment->save();
         return redirect()->back();
+        }
+
+        public function updateAppoint(Request $request){
+
+
+            // $page=PagesDescription::find($request->page_id);
+            $fir = Appointment::find($request->id);
+            $fir->name = $request->input('name');
+            $fir->phoneno = $request->input('phoneno');
+            $fir->cnic = $request->input('cnic');
+            $fir->email = $request->input('email');
+            $fir->statusofmeeting = $request->input('statusofmeeting');
+            $fir->meetingdetails= $request->input('meetingdetails');
+            $fir->isAcceptLocation = 0;
+            $fir->save();
+            return redirect()->back();
         }
     
 
         public function policeregComplaint(Request $request)
     {
-        
+        // dd($request);
             //handle form1
-         $police = new Registerpolice();
+         $police = new User();
         $police->name = $request->name;
         $police->phoneno = $request->phoneno;
         $police->cnic = $request->cnic;
@@ -126,12 +210,25 @@ class ComplaintController extends Controller
         $police->batchno = $request->batchno;
         $police->dateofjoining = $request->dateofjoining;
         $police->date = $request->date;
+        $police->password = bcrypt('password');
+        $police->assignrole('police');
         $police->save();
         return redirect()->back();
         
     }
 
-    
+    // $police = new Registerpolice();
+    // $police->name = $request->name;
+    // $police->phoneno = $request->phoneno;
+    // $police->cnic = $request->cnic;
+    // $police->email = $request->email;
+    // $police->address = $request->address;
+    // $police->rank = $request->rank;
+    // $police->batchno = $request->batchno;
+    // $police->dateofjoining = $request->dateofjoining;
+    // $police->date = $request->date;
+    // $police->save();
+    // return redirect()->back();
 
 
 
