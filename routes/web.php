@@ -7,6 +7,8 @@ use App\Antibullying;
 use App\Appointment;
 use App\Registerpolice;
 use App\Feedback;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,10 +24,17 @@ Route::get('/citizen', function () {
     // return view('welcome');
     $categories = Category::all();
     $complaints = Complaint::all();
-    $firs = Fir::all();
+    // $firs = Fir::all();
+    $user=auth()->user();
+    $firs = Fir::where('user_id',$user->id)->get();
+    // dd($firs);
+    // dd($firs);
     $cybers = Cybercrime::all();
+    $cybers = Cybercrime::where('user_id',$user->id)->get();
     $antis = Antibullying::all();
+    $antis = Antibullying::where('user_id',$user->id)->get();
     $appointments = Appointment::all();
+    $appointments = Appointment::where('user_id',$user->id)->get();
     return view('citizen',compact('categories','complaints','firs','cybers','antis','appointments'));
 })->name('welcome')->middleware('auth');
 
@@ -48,10 +57,27 @@ Route::get('/maps', function(){
     return view('map');
 });
 
+Route::get('/documentaries', function(){
+    return view('documentaries');
+});
+
+Route::get('/selfdefence', function(){
+    return view('selfdefence');
+});
+
 Route::post('/sendLocation', 'MapController@sendLocation')->name('send');
 Route::get('/view/complaint', 'ComplaintController@registerComplaintView')->name('location');
 Route::post('/register/complaint', 'ComplaintController@registerComplaint')->name('register');
 Route::post('/register/fir', 'ComplaintController@registerFir')->name('register-fir');
+
+Route::post('/updatefir/{id}', 'ComplaintController@updateFir')->name('update-fir');
+
+Route::post('/updatecyber/{id}', 'ComplaintController@updateCyber')->name('update-cyber');
+
+Route::post('/updatebullying/{id}', 'ComplaintController@updateBullying')->name('update-bullying');
+
+Route::post('/updateappoint/{id}', 'ComplaintController@updateAppoint')->name('update-Appoint');
+
 
 Route::post('/register/cyber', 'ComplaintController@registerCyber')->name('register-cyber');
 Route::post('/register/anti', 'ComplaintController@registerAnti')->name('register-anti');
@@ -65,7 +91,9 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 Route::get('/registerpolice', function () {
-    $polices = Registerpolice::all();
+    $polices = User::all();
+    
+
     return view('viewRegisterPolice',compact('polices'));
 })->name('registerpolice')->middleware('auth');
 
@@ -74,7 +102,8 @@ Route::get('/registerpolice', function () {
 
 Route::get('/firs', function () {
     $firs = Fir::all();
-    return view('viewFirs',compact('firs'));
+    $adminfirs= Fir::all();
+    return view('viewFirs',compact('firs','adminfirs'));
 })->name('firs')->middleware('auth');
 
 Route::get('/cyberCrime', function () {
@@ -83,14 +112,14 @@ Route::get('/cyberCrime', function () {
 })->name('cyberCrime')->middleware('auth');
 
 Route::get('/antibullying', function () {
-    $firs = Antibullying::all();
-    return view('viewAntibullying',compact('firs'));
+    $bullyings = Antibullying::all();
+    return view('viewAntibullying',compact('bullyings'));
 })->name('antibullying')->middleware('auth');
 
 
 Route::get('/appointments', function () {
-    $firs = Appointment::all();
-    return view('viewAppointments',compact('firs'));
+    $appoints = Appointment::all();
+    return view('viewAppointments',compact('appoints'));
 })->name('appointments')->middleware('auth');
 
 

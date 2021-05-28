@@ -23,8 +23,9 @@ class CreateAntibullyingsTable extends Migration
             $table->string('place')->nullable();
             $table->string('date')->nullable();
             $table->string('statusofincident')->nullable(); 
-            $table->string('detailofincident')->nullable(); 
+            $table->longText('detailofincident')->nullable(); 
             $table->boolean('isAcceptLocation')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

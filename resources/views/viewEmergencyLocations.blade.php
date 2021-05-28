@@ -2,6 +2,7 @@
 
 @section('content')
 <!-- table police start -->
+@hasrole("police")
 <section id="cyber">
 <div class="conatiner-fluid bco pb-5 ml-2 mr-2" >
     <div class="container">
@@ -50,6 +51,7 @@
     <!-- table pagination end -->
 </div>
 </section>
+@endhasrole
 <!-- table police end end -->
 
 

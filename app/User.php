@@ -6,11 +6,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable
 {
+
     use Notifiable;
+    use HasRoles;
     use HasApiTokens;
 
     /**
@@ -43,4 +46,21 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Complaint');
     }
+    public function firs()
+    {
+        return $this->hasMany('App\Fir');
+    }
+    public function cybercrimes()
+    {
+        return $this->hasMany('App\Cybercrime');
+    }
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment');
+    }
+    public function bullyings()
+    {
+        return $this->hasMany('App\Antibullying');
+    }
+    
 }

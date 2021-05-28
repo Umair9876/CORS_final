@@ -2,6 +2,7 @@
 @section('content')
 
 <!-- Admmin Table Start -->
+@hasrole("admin")
 
 <section id="cyber">
 <div class="conatiner-fluid bco pb-5 ml-2 mr-2" >
@@ -113,9 +114,11 @@
                         </section></td>
             <!-- modal end -->
 
+            @endhasrole
+
 
 <!-- REGISTER POLICE END -->
-
+@hasrole("admin")
 <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4 text-center h2change">
@@ -159,6 +162,7 @@
     <!-- table pagination end -->
 </div>
 </section>
+@endhasrole
 <!-- Admin Table End -->
 
 
