@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Complaint extends Model
 {
+
     public function category()
     {
         return $this->belongsTo('App\Category');
@@ -14,4 +16,6 @@ class Complaint extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
 }

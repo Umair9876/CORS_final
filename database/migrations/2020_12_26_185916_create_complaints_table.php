@@ -20,7 +20,8 @@ class CreateComplaintsTable extends Migration
             $table->string('area')->nullable();
             $table->string('address')->nullable();
             $table->string('contact')->nullable();
-            $table->integer('category_id')->nullable();
+            $table->string('filename')->nullable();
+            // $table->integer('category_id')->nullable();
             $table->boolean('isAcceptLocation')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();

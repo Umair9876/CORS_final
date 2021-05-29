@@ -9,6 +9,8 @@ use App\Registerpolice;
 use App\Feedback;
 use App\User;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

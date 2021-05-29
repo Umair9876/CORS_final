@@ -12,6 +12,7 @@ use App\Appointment;
 use App\Registerpolice;
 use App\User;
 
+
 class ComplaintController extends Controller
 {
     public function registerComplaintView()
@@ -30,12 +31,27 @@ class ComplaintController extends Controller
         $complaint->area = $request->area;
         $complaint->address = $request->address;
         $complaint->contact = $request->contact;
+// image work
+        $file = $request->file('filename');
+        // $slug = SlugService::createSlug(Complaint::class, 'slug', $request->filename);
+        $file_path = 'uploads/'.'Complaints'.'/';
+        if(isset($file))
+        {
+    $file_name = $file->getClientOriginalName();
+
+    //File::makeDirectory($file_path, $mode = 0777, true, true);
+
+    $file->move($file_path, $file_name);
+
+    $complaint->filename = $file_name;
+            }
         $complaint->isAcceptLocation = 0;
         $user=auth()->user();
         $user->complaints()->save($complaint);
         $complaint->save();
         return redirect()->back();
         
+
     }
     public function registerFir(Request $request)
     {

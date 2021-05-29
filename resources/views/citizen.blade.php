@@ -119,10 +119,11 @@ width: 100px }
   </section><!-- End Hero -->
 <!-- location model start -->
 <!-- model copy start -->
+
 <div class="modal fade" id="Modal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <form action="{{url('/register/complaint')}}" method="POST">
+                <form action="{{url('/register/complaint')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Modal Header -->
                     <div class="modal-header text-white" style="background-color:#140D44">
@@ -177,8 +178,16 @@ width: 100px }
             
           </div>
             <div>
+            <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> Attach a certification File
+</label>
+<input id="file-upload" name="filename" type="file"/>
+            </div>
+
+
+            <div>
             <label for="Category">Category</label>
-                    <select id="Category" name="Category" class="form-control" class=" float-left" required>
+                    <select id="Category" name="Category" class="form-control" class=" float-left" >
                             <option value="">choose..</option>
                             @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>
@@ -210,6 +219,8 @@ width: 100px }
                 </div>
             </div>
         </div>
+
+       
           <!-- model end final -->
 
 <!-- location model end -->
