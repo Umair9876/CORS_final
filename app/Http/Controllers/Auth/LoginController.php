@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Contracts\Foundation\Application;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -36,5 +43,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ( $user->hasRole('citizen') ){
+            return redirect('/citizen');
+        }
+
+        if ( $user->hasRole('admin') ){
+            return redirect('/dashboard1');
+        }
+
+        if ( $user->hasRole('police') ){
+            return redirect('/dashboard1');
+        }
     }
 }

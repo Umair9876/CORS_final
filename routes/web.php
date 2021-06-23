@@ -52,6 +52,16 @@ Route::get('/citizen', function () {
 
 
 Route::get('/', function () {
+   $complaint = Complaint::all();
+   $cybers = Cybercrime::all();
+   $antis = Antibullying::all();
+
+
+//    if(isset($complaint && $cybers && $antis)))
+//    {
+//     return view('welcomeCopy', compact());
+
+//    }
     return view('welcomeCopy');
 })->name('main');
 

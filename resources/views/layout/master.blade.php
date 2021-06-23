@@ -119,7 +119,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin</a>
+                        <a href="{{route('dashboard1')}}" class="d-block">{{Auth::user()->name}}</a>
                     </div>
                 </div>
 
@@ -129,6 +129,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+                         
                         <li class="nav-item has-treeview">
                             <a href="{{route('dashboard1')}}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -167,7 +168,7 @@
                                 </p>
                             </a>
                         </li>
-
+                        @if(Auth::user()->hasRole('admin'))
                         <li class="nav-item has-treeview ">
                             <a href="{{route('registerpolice')}}" class="nav-link ">
                                 <i class="nav-icon fas fa-registered"></i>
@@ -176,6 +177,7 @@
                                 </p>
                             </a>
                         </li>
+                        @endif
                         {{-- <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>

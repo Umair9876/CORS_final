@@ -26,7 +26,9 @@
             <tbody>
             @foreach ($feedbacks as $feedback)
             <tr class="text-center text-center">
-            <td>{{$feedback->feedback}} </td>
+            <td> 
+            <textarea name="" id="" cols="100" rows="1">{{$feedback->feedback}}</textarea>
+            </td>
             </tr>
             @endforeach
             </tbody>

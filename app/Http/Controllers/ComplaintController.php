@@ -15,6 +15,7 @@ use App\User;
 
 class ComplaintController extends Controller
 {
+
     public function registerComplaintView()
     {
         $categories = Category::all();
@@ -233,18 +234,7 @@ class ComplaintController extends Controller
         
     }
 
-    // $police = new Registerpolice();
-    // $police->name = $request->name;
-    // $police->phoneno = $request->phoneno;
-    // $police->cnic = $request->cnic;
-    // $police->email = $request->email;
-    // $police->address = $request->address;
-    // $police->rank = $request->rank;
-    // $police->batchno = $request->batchno;
-    // $police->dateofjoining = $request->dateofjoining;
-    // $police->date = $request->date;
-    // $police->save();
-    // return redirect()->back();
+  
 
 
 

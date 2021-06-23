@@ -68,7 +68,15 @@
           <li class="active"><a href="/">Home</a></li>
           <li><a href="#mw">Most Wanted</a></li>
           <li><a href="#mr">News Room</a></li>
+          @hasrole('admin') 
           <li><a href="{{route('dashboard1')}}">Dashboard</a></li>
+          @endhasrole
+
+          @hasrole('police')      
+          <li><a href="{{route('dashboard1')}}">Dashboard</a></li>
+          @endhasrole
+          
+         
           @guest
           <li><a href="{{route('welcome')}}">Login</a></li>
           <li><a href="{{route('register')}}">Register</a></li>
@@ -319,8 +327,6 @@
             <div class="col-md-4">
               <!-- Card -->
               <div class="card booking-card card_changed">
-
-
 
 
                 <!-- Card content -->

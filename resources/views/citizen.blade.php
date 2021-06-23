@@ -121,7 +121,7 @@ width: 100px }
 <!-- model copy start -->
 
 <div class="modal fade" id="Modal">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 50%" >
                 <div class="modal-content">
                 <form action="{{url('/register/complaint')}}" method="POST" enctype="multipart/form-data">
                     @csrf
