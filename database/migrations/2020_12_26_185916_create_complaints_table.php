@@ -11,7 +11,7 @@ class CreateComplaintsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up()  //up for uploading
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -24,7 +24,6 @@ class CreateComplaintsTable extends Migration
             $table->boolean('isAcceptLocation')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();
-
         });
     }
 

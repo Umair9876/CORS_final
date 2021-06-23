@@ -9,8 +9,6 @@ use App\Registerpolice;
 use App\Feedback;
 use App\User;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +20,8 @@ use App\User;
 |
 */
 
+
+
 Route::get('/citizen', function () {
     // return view('welcome');
     $categories = Category::all();
@@ -29,7 +29,7 @@ Route::get('/citizen', function () {
     // $firs = Fir::all();
     $user=auth()->user();
     $firs = Fir::where('user_id',$user->id)->get();
-    // dd($firs);
+
     // dd($firs);
     $cybers = Cybercrime::all();
     $cybers = Cybercrime::where('user_id',$user->id)->get();
@@ -40,28 +40,11 @@ Route::get('/citizen', function () {
     return view('citizen',compact('categories','complaints','firs','cybers','antis','appointments'));
 })->name('welcome')->middleware('auth');
 
-
-// Route::get('/citizen', function () {
-//     // return view('welcome');
-//     $categories = Category::all();
-//     $complaints = Complaint::all();
-
-
-//     return view('citizen',compact('categories','complaints'));
-// })->name('welcome')->middleware('auth');
-
-
 Route::get('/', function () {
    $complaint = Complaint::all();
    $cybers = Cybercrime::all();
    $antis = Antibullying::all();
 
-
-//    if(isset($complaint && $cybers && $antis)))
-//    {
-//     return view('welcomeCopy', compact());
-
-//    }
     return view('welcomeCopy');
 })->name('main');
 

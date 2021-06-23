@@ -47,8 +47,8 @@ class ComplaintController extends Controller
     $complaint->filename = $file_name;
             }
         $complaint->isAcceptLocation = 0;
-        $user=auth()->user();
-        $user->complaints()->save($complaint);
+        $user=auth()->user();  //login authenticated user
+        $user->complaints()->save($complaint);   //report save that belongs to current user
         $complaint->save();
         return redirect()->back();
         
@@ -57,7 +57,6 @@ class ComplaintController extends Controller
     public function registerFir(Request $request)
     {
    
-            //handle form1
          $fir = new Fir();
         $fir->name = $request->name;
         $fir->phoneno = $request->phoneno;
